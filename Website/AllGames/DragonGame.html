@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chrome Dino Game</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+        }
+
+        #game {
+            width: 100%;
+            height: 200px;
+            border-bottom: 2px solid white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #char {
+            width: 50px;
+            height: 80px;
+            position: absolute;
+            bottom: 0; /* Start at the bottom */
+            left: 50px;
+            background-image: url("dino.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .animate {
+            animation: jump 400ms ease;
+        }
+
+        #block {
+            /* filter: drop-shadow(8px 8px 5px white); */
+            height: 20px; /* Adjusted for better visibility */
+            width: 20px;
+            position: absolute;
+            bottom: 0;
+            background-image: url("https://img.itch.zone/aW1nLzcwNzQxNzMucG5n/347x500/xMf9sx.png");/* Simple block color */
+            left: 100%; /* Start off-screen */
+            animation: block 4s infinite linear; /* Slower block speed */
+        }
+
+        #score {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 20px;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        @keyframes block {
+            0% {
+                left: 100%; /* Start off-screen */
+            }
+
+            100% {
+                left: -40px; /* End off-screen */
+            }
+        }
+
+        @keyframes jump {
+            0% {
+                bottom: 0; /* Start at the bottom */
+            }
+
+            50% {
+                bottom: 100px; /* Peak height */
+            }
+
+            100% {
+                bottom: 0; /* Return to bottom */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="game">
+        <div id="char"></div>
+        <div id="block"></div>
+        <div id="score">Score: 0</div>
+    </div>
+
+    <script type="module">
+        import { Data } from './MainServer.js';
+
+        let char = document.getElementById("char");
+        let block = document.getElementById("block");
+        let scoreDisplay = document.getElementById("score");
+        let score = 0;
+        let hasScored = false;
+
+        function jump() {
+            if (!char.classList.contains("animate")) {
+                char.classList.add("animate");
+                setTimeout(() => {
+                    char.classList.remove("animate");
+                }, 400); // Adjust to match animation duration
+            }
+        }
+
+        setInterval(() => {
+            // Check if jump command is received
+            if (Data.MyObj.jump === 1) {
+                jump();
+                Data.MyObj.jump = 0;  // Reset jump after executing
+            }
+
+            // Game logic
+            let charBottom = parseInt(window.getComputedStyle(char).getPropertyValue("bottom"));
+            let blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
+
+            if (blockLeft < 100 && blockLeft > 50 && charBottom <= 80) {
+                resetGame(); // Collision detected
+            } else if (blockLeft <= 0 && !hasScored) {
+                score++;
+                scoreDisplay.textContent = "Score: " + score;
+                hasScored = true;
+            } else if (blockLeft > 0) {
+                hasScored = false;
+            }
+        }, 10);
+
+        function resetGame() {
+            score = 0;
+            scoreDisplay.textContent = "Score: " + score;
+            block.style.animation = "none";
+            block.offsetHeight; // Trigger a reflow
+            block.style.animation = "block 4s infinite linear"; // Restart animation
+        }
+
+        document.addEventListener('click', jump);
+        document.addEventListener("keydown", (event) => {
+            if (event.code === "Space" || event.code === "ArrowUp") {
+                jump();
+            }
+        });
+    </script>
+</body>
+</html>

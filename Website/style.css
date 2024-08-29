@@ -1,0 +1,188 @@
+body {
+    font-family: sans-serif;
+    background-color: #ffffff;
+    color: #1e1e1e;
+    margin: 0px;
+    padding-top: 3.5rem;
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    background-color: #ffffff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3.5rem; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    z-index: 1000; 
+}
+
+nav a{
+    color: #111111;
+    text-decoration: none;
+    padding-right:1rem;
+}
+
+nav #name{
+    flex: 1;
+    padding-left: 1rem;
+    margin-top:1.1rem;
+}
+
+
+.name{
+    height: 20rem;
+    background-color: #111111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:0px;
+    padding:0px;
+    margin-bottom: 2rem;
+    margin-top:1rem;
+}
+.name div{
+    color: white;
+    text-align: center;
+    
+    
+}
+.name div h1{
+    font-size: 10rem;
+    margin:-10px;
+    letter-spacing: 1rem;
+}
+.name div p{
+    margin:0px;
+    letter-spacing: 0.5rem;
+}
+
+.content{
+    margin:1rem;
+}
+
+.content .info1{
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.content .info1 img{
+    border-radius: 1rem;
+    margin-right: 5rem;
+}
+.content .info1 div h2{
+    letter-spacing: 0.5rem;
+    font-size: 3rem;
+    margin:0px;
+    font-weight: 1000;
+    border-right:solid 2px black;
+    border-bottom:solid 2px black;
+    padding-left:1rem;
+}
+
+
+.content .info2{
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.content .info2 img{
+    border-radius: 1rem;
+    margin-left: 5rem;
+}
+.content .info2 div h2{
+    letter-spacing: 0.5rem;
+    font-size: 3rem;
+    margin:0px;
+    font-weight: 1000;
+    border-left:solid 2px black;
+    border-bottom:solid 2px black;
+    padding-left:1rem;
+}
+
+.games{
+    background-color:#ffffff;
+    color:#111111;
+    text-align: center;
+    font-size: 5rem;
+    border-top:solid 1px #1e1e1e;
+    border-bottom:solid 1px #1e1e1e;
+    margin:0px;
+    padding:0px;
+    margin-bottom: 2rem;
+}
+
+#gameCard .game{
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding:1rem;
+    border: solid 1px #111111;
+    box-shadow: 10px 10px 0 black;
+
+    color: #111111;
+    letter-spacing: 0.1rem;
+
+    margin-left:1rem;
+}
+#gameCard{
+    text-decoration: none;
+}
+
+
+
+.bottom {
+    margin: 0;
+    margin-top: 2rem;
+    padding: 2rem;
+    padding-bottom: 4rem;
+    background-color: #111111;
+    color: #ffffff;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+    gap: 2rem; /* Space between grid items */
+}
+
+.bottom .us {
+    display: flex;
+    align-items: center;
+    padding: 1rem; /* Increase padding for a cleaner look */
+    background-color: #1e1e1e; /* Slightly lighter background for contrast */
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover effect */
+}
+
+.bottom .us:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+.bottom .us img {
+    width: 60px; /* Standardize image size */
+    height: 60px;
+    margin-right: 1rem;
+    border-radius: 50%; /* Ensure images are circular */
+    object-fit: cover; /* Ensures the image fits within the circle */
+    border: 2px solid #ffffff; /* Add a border for a polished look */
+}
+
+.bottom .us h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.bottom .us p {
+    margin: 0.5rem 0 0;
+    font-size: 1rem;
+    color: #cccccc;
+}

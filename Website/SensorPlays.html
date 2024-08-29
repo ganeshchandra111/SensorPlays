@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SensorPlay</title>
+    <style>
+        body {
+    font-family: sans-serif;
+    background-color: #ffffff;
+    color: #1e1e1e;
+    margin: 0px;
+    padding-top: 3.5rem;
+}
+
+img{
+    object-fit: cover;
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    background-color: #ffffff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3.5rem; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    z-index: 1000; 
+}
+
+nav a{
+    color: #111111;
+    text-decoration: none;
+    padding-right:1rem;
+}
+
+nav #name{
+    flex: 1;
+    padding-left: 1rem;
+    margin-top:1.1rem;
+}
+
+
+.name{
+    height: 20rem;
+    background-color: #111111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:0px;
+    padding:0px;
+    margin-bottom: 2rem;
+    margin-top:1rem;
+}
+.name div{
+    color: white;
+    text-align: center;
+    
+    
+}
+.name div h1{
+    font-size: 10rem;
+    margin:-10px;
+    letter-spacing: 1rem;
+}
+.name div p{
+    margin:0px;
+    letter-spacing: 0.5rem;
+}
+
+.content{
+    margin:1rem;
+}
+
+.content .info1{
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.content .info1 p{
+    font-size: 1.2rem;
+    letter-spacing: 0.1rem;
+}
+
+.content .info1 img{
+    border-radius: 1rem;
+    margin-right: 5rem;
+}
+.content .info1 div h2{
+    letter-spacing: 0.5rem;
+    font-size: 3rem;
+    margin:0px;
+    font-weight: 1000;
+    border-right:solid 2px black;
+    border-bottom:solid 2px black;
+    padding-left:1rem;
+}
+
+
+.content .info2{
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.content .info2 img{
+    border-radius: 1rem;
+    margin-left: 5rem;
+}
+
+.content .info2 p{
+    font-size: 1.2rem;
+    letter-spacing: 0.1rem;
+}
+
+.content .info2 div h2{
+    letter-spacing: 0.5rem;
+    font-size: 3rem;
+    margin:0px;
+    font-weight: 1000;
+    border-left:solid 2px black;
+    border-bottom:solid 2px black;
+    padding-left:1rem;
+}
+
+.games{
+    background-color:#ffffff;
+    color:#111111;
+    text-align: center;
+    font-size: 5rem;
+    border-top:solid 1px #1e1e1e;
+    border-bottom:solid 1px #1e1e1e;
+    margin:0px;
+    padding:0px;
+    margin-bottom: 2rem;
+    letter-spacing: 1rem;
+}
+
+.gameCard .game{
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding:1rem;
+    border: solid 1px #111111;
+    box-shadow: 10px 10px 0 black;
+
+    color: #111111;
+    letter-spacing: 0.1rem;
+
+    margin-left:1rem;
+    margin-right: 1rem;
+}
+.gameCard{
+    text-decoration: none;
+}
+
+.gamesDiv{
+    display: flex;
+
+}
+
+.bottom {
+    margin: 0;
+    margin-top: 2rem;
+    padding: 2rem;
+    padding-bottom: 4rem;
+    background-color: #111111;
+    color: #ffffff;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 2rem; 
+}
+
+.bottom .us {
+    display: flex;
+    align-items: center;
+    padding: 1rem; 
+    background-color: #1e1e1e; 
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    transition: transform 0.3s, box-shadow 0.3s; 
+}
+
+.bottom .us:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
+}
+
+.bottom .us img {
+    width: 60px; 
+    height: 60px;
+    margin-right: 1rem;
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 2px solid #ffffff; 
+}
+
+.bottom .us h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.bottom .us p {
+    margin: 0.5rem 0 0;
+    font-size: 1rem;
+    color: #cccccc;
+}
+
+    </style>
+
+<script type="module" src="AllGames/MainServer.js"></script>
+</head>
+<body>
+
+    <nav>
+        <div id="name">
+            <a href="#SensorPlay"><h2>SENSOR PLAY <p title='Server Connection Status ' style="display: inline;" id="serverConnection">🔴</p></h2>  </a> 
+        </div>
+        <div>
+            <a href="#project">Project</a>
+            <a href="#howitworks">How it works</a>
+            <a href="#games">Games</a>
+            <a href="#bottom">About Us</a>
+        </div>
+    </nav>
+
+    <div class="name" id="SensorPlay">
+        <div>
+            <h1>SENSOR PLAY</h1>
+            <p>We play Unique</p>
+        </div>
+        
+    </div>
+
+    <div class="content" id="#content">
+        <div class="info1" id="project">
+            <img src="https://thumbs.dreamstime.com/b/gaming-icon-background-graphic-web-design-simple-vector-sign-internet-concept-symbol-website-button-mobile-app-144431727.jpg" alt="" width="500px" height="500"> 
+            <div>
+                <h2>Project</h2>
+                <p>When we play games we mostly use mouse and keyboard , Thats quite boring. Now with this project we can use our real movements to control a game. want to play Dino Game ? you need to jump in to avoid Obsticals. Wanna play a paddel Game move your hand to control your paddels direction and more. <br> This is a new way to Game , A new innovation. We got our inspiratiom from => <a href="https://youtu.be/4zKNCLrxZH8?si=BS8xleN7yHbreL1m" target="_blank"><b>Here</b></a></p>
+            </div>
+            
+        </div>
+        
+        <div class="info2">
+            <div>
+                <h2>Electronics</h2>
+                <p>We have used a <a href="https://en.wikipedia.org/wiki/ESP32" target="_blank">ESP32</a> to control evrything. we used <a href="https://www.watelectronics.com/ultrasonic-sensor/" target="_blank">Ultrasonic sensor</a>  to sense the objects infront which is going to help us to get the data that we need to control the game. we used simple LED setup to indicate the connnections like WIFI connection and server Conncetion. We kept Hardware simple and neat to avoid any error which might take Days to fix.</p>
+            </div>
+            <img src="https://www.rmit.edu.au/content/dam/rmit/au/en/research/networks-centres-groups/cades/technology-computer-lines-board-50711.jpg" alt="" width="500px" height="500">
+        </div>
+
+        <div class="info1" id="howitworks">
+            <img src="https://rephrase.co.uk/wp-content/uploads/2024/01/social-network-hologram-illustration-technology-communication-internet-concept-3d-rendering-scaled.jpg" alt="" width="500px" height="500">
+            <div>
+                <h2>Communication</h2>
+                <p>As communication is vital in our project and we need a very fast data transfer speed, we had to use <a href="https://www.youtube.com/watch?v=1BfCnjr_Vjg#ddg-play" target="_blank">websockets</a> to send and recive data. <br> We used <a href="https://www.djangoproject.com/start/overview/" target="_blank">Django</a> first which was slow,so we have to switch to websockets. Hosted a websocket server in ESP32 and using <a href="https://www.cisco.com/c/en/us/products/switches/what-is-a-lan-local-area-network.html" target="_blank">Localnetworks</a> and using its IP we were able to communicate with the Game and control it. <br>To know how games communicate => <a href="#howGamesMade">Here</a></p>
+            </div>
+        </div>
+
+        <div class="info2" id="howGamesMade">
+            <div >
+                <h2>How Games Made</h2>
+                <p>Game are made using <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS" target="_blank">HTML,CSS </a>and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">JavaScript</a>. There is a central JS hub which is responsible for communicating with all the games. All the data that goes into games are coming from this central hub. Then games take that data and act accordingly.
+                </p>
+            </div>
+            <img src="https://pics.craiyon.com/2023-07-26/21d87612a7a246d09bbde619aeb98460.webp" alt="" width="500px" height="500">
+        </div>
+    </div>
+
+    <div class="games" id="games"><h1>PLAY GAMES</h1></div>
+
+    <div class="gamesDiv">
+        <a href="AllGames/DragonGame.html" class="gameCard" target="_blank" id="DragonGame">
+            <div class="game">
+                <img src="https://img.poki-cdn.com/cdn-cgi/image/quality=78,width=1200,height=1200,fit=cover,f=png/9afd3b92ab41ffca7f368a8fcbd6d39a75894efe0edbc14cf1f067cf625e6678.png" alt="" width="250px" height="250px">
+                <p>This is a ChromeDino game which you play in chrome when you have no internet. <br> <b>How to play :- </b><br>Place your hand at the sensor then move it up when you want to jump. <br> you can also place the sensor at near your feet then jump in real life to make the dino jump. <br><b>Have fun 😉</b></p>
+            </div>
+            
+        </a>
+        <a href="AllGames/paddleGame.html" class="gameCard" target="_blank" id="PaddleGame">
+    
+            <div class="game">
+                <img src="http://img4.wikia.nocookie.net/__cb20090620041909/videogamehistory/images/6/64/Pong_game.gif" alt="" width="250px" height="250px">
+                <p>Taking inspiration from the Worlds first video game , we also made our our version of it.<br> <b>How to play :- </b><br>Place your hand at the sensor then move it to control (left moves paddel left and vicevarsa) <br> make sure ball doesnt touch ground. <br><b>Show some moves 😎</b></p>
+            </div>
+            
+        </a>
+        
+    </div>
+
+    <div class="bottom" id="bottom">
+        <div class="us">
+            <img src="https://c8.alamy.com/comp/2KF75HJ/a-vector-illustration-of-an-indie-game-developer-at-his-desk-2KF75HJ.jpg" alt="" width="60px" height="60px">
+            <div>
+                <h4>Ganesh Chandra</h4>
+                <p>Full Stack</p>
+            </div>
+        </div>
+
+        <div class="us">
+            <img src="https://media.istockphoto.com/id/584570730/vector/electronics-repair-vector.jpg?s=612x612&w=0&k=20&c=uoly-z-SJ_nVVNm-w-m6tkmutAf8nUdK6iZ2uMi2suA=" alt="" width="60px" height="60px">
+            <div>
+                <h4>Ganesh</h4>
+                <p>Electronics</p>
+            </div>
+        </div>
+
+        <div class="us">
+            <img src="https://i.pinimg.com/736x/c6/4f/61/c64f61144e379948c2345137100e9c0d.jpg" alt="" width="60px" height="60px">
+            <div>
+                <h4>Jaya deep</h4>
+                <p>Game devoloper</p>
+            </div>
+        </div>
+
+        <div class="us">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5NHC4AmyS6Le5Lnt0StfNRFDxKs51yTG06A&s" alt="" width="60px" height="60px">
+            <div>
+                <h4>Shiva Kumar</h4>
+                <p>Frontend</p>
+            </div>
+        </div>
+    </div>
+    <p style="text-align: center;font-size: smaller;"><span style="text-decoration: underline;">Thanks</span>, Hope you appriciate our project and Hardwork that we put in</p>
+
+    <script>
+        
+
+        document.addEventListener("DOMContentLoaded", function() {
+    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+    navLinks.forEach(link => {
+        link.addEventListener("click", function(event) {
+            event.preventDefault();
+            const targetId = this.getAttribute("href").substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                smoothScrollTo(targetElement, 1000); // Adjust speed here (in milliseconds)
+            }
+        });
+    });
+
+    function smoothScrollTo(targetElement, duration) {
+        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+        const startPosition = window.pageYOffset;
+        const distance = targetPosition - startPosition;
+        let startTime = null;
+
+        function animation(currentTime) {
+            if (startTime === null) startTime = currentTime;
+            const timeElapsed = currentTime - startTime;
+            const run = ease(timeElapsed, startPosition, distance, duration);
+            window.scrollTo(0, run);
+            if (timeElapsed < duration) requestAnimationFrame(animation);
+        }
+
+        function ease(t, b, c, d) {
+            t /= d / 2;
+            if (t < 1) return c / 2 * t * t + b;
+            t--;
+            return -c / 2 * (t * (t - 2) - 1) + b;
+        }
+
+        requestAnimationFrame(animation);
+    }
+});
+
+    </script>
+</body>
+</html>
