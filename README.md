@@ -10,8 +10,6 @@ Traditional gaming relies heavily on mouse and keyboard inputs, which can feel m
 
 This project represents a new way to game - a genuine innovation in interactive entertainment.
 
-**Inspiration**: [Watch our inspiration video](https://youtu.be/4zKNCLrxZH8?si=BS8xleN7yHbreL1m)
-
 ## 🔧 Hardware Components
 
 ### Electronics Setup
