@@ -1,6 +1,6 @@
 # SensorPlay
 
-## Video:   ![Click Here](https://drive.google.com/drive/folders/1yO3PF0WTOi4_OmfPawIY0HI7riB0P-Ta?usp=sharing)
+## Video:   https://drive.google.com/drive/folders/1yO3PF0WTOi4_OmfPawIY0HI7riB0P-Ta?usp=sharing
 
 
 > **We play Unique**
